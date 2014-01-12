@@ -1,0 +1,5 @@
+<IfModule mod_alias.c>
+    RedirectMatch 403 /.bowerrc
+    RedirectMatch 403 /package.json
+    RedirectMatch 403 /Gruntfile.js
+</IfModule>
