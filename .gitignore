@@ -8,7 +8,8 @@ $RECYCLE.BIN/
 !.gitignore
 *~
 .directory
-.sass-cache
+.sass_cache
 
+src/scss/.sass_cache/
 node_modules
 src/components
