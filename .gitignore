@@ -1,3 +1,4 @@
+# system
 .DS_Store
 ._*
 .Spotlight-V100
@@ -8,8 +9,21 @@ $RECYCLE.BIN/
 !.gitignore
 *~
 .directory
-.sass_cache
 
+# frontend
+.sass_cache
 src/scss/.sass_cache/
 node_modules
 src/components
+
+# silverstripe core
+/assets/*
+_ss_environment.php
+/silverstripe-cache
+/vendor/
+
+# silverstripe modules
+/cms
+/framework
+/googlesitemaps
+/silverstripe-link-field
