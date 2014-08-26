@@ -1,1 +1,1 @@
-(function(){this["import"]("compass")}).call(this);
+(function(){}).call(this);

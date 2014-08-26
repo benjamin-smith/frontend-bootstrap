@@ -77,10 +77,6 @@ module.exports = function(grunt) {
       }
     },
 
-    jshint: {
-      all: [js + '*.js']
-    },
-
     watch: {
       scripts: {
         files: [coffee + '*.coffee'],
@@ -89,12 +85,20 @@ module.exports = function(grunt) {
       styles: {
         files: [scss + '*.scss'],
         tasks: ['clean', 'sass', 'cssmin']
+      },
+      triggerLiveReloadOnTheseFiles: {
+          options: {
+              livereload: true
+          },
+          files: [
+              css + '/*.css',
+              js + '/*.js',
+          ]
       }
     }
 
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -103,14 +107,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', 'def', function(){
-    grunt.task.run('clean');
+  grunt.registerTask('styles', 'def', function(){
     grunt.task.run('sass');
     grunt.task.run('cssmin');
+  });
+
+  grunt.registerTask('scripts', 'def', function(){
     grunt.task.run('coffee');
     grunt.task.run('concat');
-    grunt.task.run('jshint');
     grunt.task.run('uglify');
+  });
+
+  grunt.registerTask('default', 'def', function(){
+    grunt.task.run('styles');
+    grunt.task.run('scripts');
   });
 
 };
